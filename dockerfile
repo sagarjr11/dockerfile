@@ -1,7 +1,6 @@
 # Use the official CentOS image as the base image
 FROM centos:8
 RUN  yum clean all
-RUN  yum makecache
 
 RUN  yum -y update && \
      yum -y install httpd
