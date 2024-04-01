@@ -1,6 +1,6 @@
 # Use the official CentOS image as the base image
-FROM centos:latest
-
+FROM centos:8
+RUN yum -y update
 # Install Apache HTTP server
 RUN yum -y install httpd
 
