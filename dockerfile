@@ -9,3 +9,4 @@ EXPOSE 80
 
 # Start Apache HTTP server in the foreground when the container starts
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ 
