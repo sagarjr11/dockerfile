@@ -1,15 +1,14 @@
-# Use the official CentOS image as the base image
-FROM centos:8
-RUN  yum clean all
-RUN '/bin/sh -c yum -y update'
+# Use the official Python base image
+FROM python:3.9-slim
 
-#RUN yum -y update
-# Install Apache HTTP server
-#RUN yum -y install httpd
+# Set the working directory inside the container
+WORKDIR /app
 
-# Expose port 80 for HTTP traffic
-EXPOSE 80
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-# Start Apache HTTP server in the foreground when the container starts
-#CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+# Expose port 8000 to allow external access
+EXPOSE 8000
 
+# Run Python's HTTP server when the container launches
+CMD ["python", "-m", "http.server", "8000"]
