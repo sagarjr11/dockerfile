@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Print Message') {
+            steps {
+                echo 'Hello, world! This is a Jenkins Pipeline.'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed :('
+        }
+    }
+}
